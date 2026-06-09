@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Builders Construction Inc. | Kitchener Renovations & Construction</title>
+  <meta name="description" content="Apex Builders Construction Inc. provides basement renovations, bathroom remodeling, kitchen remodeling, flooring, additions, and construction services in Kitchener, Waterloo, Cambridge, and Guelph. Call for a free estimate." />
+  <meta name="theme-color" content="#0b76bb" />
+  <meta property="og:title" content="Apex Builders Construction Inc." />
+  <meta property="og:description" content="5.0-rated construction and renovation company serving Kitchener, Waterloo, Cambridge, and Guelph." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/apex-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0b76bb;
+      --blue-dark: #07598f;
+      --ink: #15171c;
+      --muted: #667085;
+      --light: #f5f8fb;
+      --card: #ffffff;
+      --border: #e6edf3;
+      --shadow: 0 18px 50px rgba(21, 23, 28, 0.12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .eyebrow { color: var(--blue); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; margin-bottom: 12px; }
+    h1, h2, h3 { font-family: Oswald, Inter, sans-serif; line-height: 1.05; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(44px, 7vw, 78px); color: #fff; }
+    h2 { font-size: clamp(34px, 5vw, 54px); }
+    p { color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; padding: 14px 22px; font-weight: 800; transition: .2s ease; border: 1px solid transparent; }
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 12px 24px rgba(11,118,187,.25); }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-white { background: #fff; color: var(--ink); }
+    .btn-outline { border-color: rgba(255,255,255,.32); color: #fff; background: rgba(255,255,255,.08); backdrop-filter: blur(10px); }
+    .btn-outline:hover { background: rgba(255,255,255,.16); }
+
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav { height: 78px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; }
+    .brand img { width: 62px; height: 48px; object-fit: contain; }
+    .brand-title { font-family: Oswald, sans-serif; font-size: 19px; line-height: .95; letter-spacing: .02em; }
+    .brand-title span { display: block; font-size: 11px; letter-spacing: .2em; color: var(--muted); margin-top: 5px; }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-weight: 700; color: #4a5565; font-size: 14px; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .phone-link { font-weight: 900; color: var(--ink); }
+    .menu-btn { display: none; border: 0; background: transparent; font-size: 28px; cursor: pointer; }
+
+    .hero { position: relative; min-height: 760px; display: grid; align-items: center; overflow: hidden; background: #111827; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,16,28,.92), rgba(9,16,28,.72) 48%, rgba(9,16,28,.34)), url('assets/project-bathroom-vanity.png') center/cover no-repeat; transform: scale(1.04); }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 180px; background: linear-gradient(0deg, #fff, transparent); opacity: .95; }
+    .hero-inner { position: relative; z-index: 2; padding: 78px 0 130px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .hero-badge { color: #d8efff; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); width: fit-content; padding: 9px 14px; border-radius: 999px; font-weight: 800; font-size: 13px; margin-bottom: 18px; }
+    .hero p { color: rgba(255,255,255,.82); font-size: 19px; max-width: 640px; margin: 24px 0 32px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-proof { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 34px; color: #fff; font-weight: 800; }
+    .proof-pill { display: flex; align-items: center; gap: 9px; padding: 10px 13px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; backdrop-filter: blur(8px); font-size: 13px; }
+    .stars { color: #fbbf24; letter-spacing: 1px; }
+    .hero-card { background: rgba(255,255,255,.92); border: 1px solid rgba(255,255,255,.4); border-radius: 28px; padding: 16px; box-shadow: var(--shadow); backdrop-filter: blur(14px); }
+    .hero-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-card img { height: 210px; width: 100%; object-fit: cover; border-radius: 18px; }
+    .hero-card img:first-child { grid-row: span 2; height: 432px; }
+
+    .trust { margin-top: -64px; position: relative; z-index: 4; }
+    .trust-grid { background: #fff; border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); display: grid; grid-template-columns: repeat(4,1fr); overflow: hidden; }
+    .trust-item { padding: 26px 22px; border-right: 1px solid var(--border); }
+    .trust-item:last-child { border-right: 0; }
+    .trust-num { font-family: Oswald, sans-serif; font-size: 34px; font-weight: 800; color: var(--blue); }
+    .trust-label { color: var(--muted); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+
+    section { padding: 92px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 38px; }
+    .section-head p { max-width: 550px; }
+
+    .projects { background: #fff; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { position: relative; overflow: hidden; border-radius: 22px; min-height: 340px; background: #ddd; box-shadow: 0 12px 30px rgba(16,24,40,.08); }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: .35s ease; }
+    .project-card:hover img { transform: scale(1.06); }
+    .project-overlay { position: absolute; inset: auto 0 0; padding: 56px 20px 20px; background: linear-gradient(0deg, rgba(0,0,0,.78), transparent); color: #fff; }
+    .project-overlay small { color: #bde7ff; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
+    .project-overlay h3 { font-size: 25px; margin-top: 6px; }
+
+    .owner { background: var(--light); padding: 78px 0; }
+    .owner-card { background: #fff; border: 1px solid var(--border); border-radius: 28px; padding: 34px; box-shadow: 0 10px 30px rgba(16,24,40,.06); display: grid; grid-template-columns: 120px 1fr; gap: 26px; align-items: center; }
+    .owner-avatar { width: 120px; height: 120px; border-radius: 28px; display: grid; place-items: center; background: linear-gradient(135deg, var(--blue), #084f80); color: #fff; font-family: Oswald, sans-serif; font-size: 42px; font-weight: 800; letter-spacing: .04em; }
+    .owner-card h2 { margin-bottom: 10px; }
+    .owner-card p { max-width: 820px; }
+
+    .services { background: var(--light); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 26px; min-height: 210px; transition: .22s ease; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(16,24,40,.08); }
+    .icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: rgba(11,118,187,.1); color: var(--blue); font-weight: 900; margin-bottom: 18px; }
+    .service-card h3 { font-size: 25px; margin-bottom: 10px; }
+
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .why-photo { position: relative; }
+    .why-photo img { border-radius: 28px; box-shadow: var(--shadow); width: 100%; max-height: 560px; object-fit: cover; }
+    .why-list { display: grid; gap: 16px; margin-top: 28px; }
+    .why-item { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
+    .check { width: 42px; height: 42px; border-radius: 50%; background: rgba(11,118,187,.12); display: grid; place-items: center; color: var(--blue); font-weight: 900; }
+    .why-item h3 { font-size: 22px; margin-bottom: 4px; }
+
+    .reviews { background: #101828; color: #fff; }
+    .reviews h2, .reviews .eyebrow { color: #fff; }
+    .reviews .section-head p { color: rgba(255,255,255,.7); }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .review-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.11); border-radius: 22px; padding: 24px; min-height: 260px; }
+    .review-card p { color: rgba(255,255,255,.78); margin: 14px 0 22px; }
+    .review-card strong { color: #fff; }
+
+    .cta-band { padding: 0; }
+    .cta-box { background: linear-gradient(135deg, var(--blue), #084f80); color: #fff; border-radius: 30px; padding: 54px; display: flex; justify-content: space-between; align-items: center; gap: 26px; overflow: hidden; position: relative; }
+    .cta-box::after { content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.12); right: -90px; top: -100px; }
+    .cta-box h2 { color: #fff; }
+    .cta-box p { color: rgba(255,255,255,.82); margin-top: 12px; max-width: 620px; }
+
+    .contact { background: var(--light); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: start; }
+    .contact-card, .form-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(16,24,40,.05); }
+    .contact-row { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .contact-row:last-child { border-bottom: 0; }
+    .contact-row strong { display: block; margin-bottom: 3px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1/-1; }
+    label { font-weight: 800; font-size: 13px; }
+    input, select, textarea { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 14px 15px; font: inherit; background: #fbfdff; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(11,118,187,.12); }
+    textarea { min-height: 125px; resize: vertical; }
+    .form-note { font-size: 12px; margin-top: 12px; }
+
+    footer { background: #0b111c; color: #fff; padding: 48px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 34px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    footer p, footer a { color: rgba(255,255,255,.68); }
+    footer h3 { margin-bottom: 14px; }
+    .footer-logo { width: 130px; background: #fff; border-radius: 16px; padding: 8px; margin-bottom: 14px; }
+    .copyright { padding-top: 24px; color: rgba(255,255,255,.48); font-size: 13px; }
+
+    @media (max-width: 940px) {
+      .nav-links, .nav-actions { display: none; }
+      .menu-btn { display: block; }
+      .nav.mobile-open { height: auto; align-items: flex-start; padding: 16px 0; }
+      .mobile-menu { display: grid !important; position: absolute; top: 78px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 18px 24px; gap: 14px; box-shadow: var(--shadow); }
+      .hero-inner, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .trust-grid, .service-grid, .review-grid, .footer-grid, .project-grid { grid-template-columns: 1fr 1fr; }
+      .owner-card { grid-template-columns: 1fr; }
+      .section-head, .cta-box { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 620px) {
+      header .btn { display: none; }
+      .hero { min-height: 680px; }
+      .hero-inner { padding: 64px 0 110px; }
+      .trust-grid, .service-grid, .review-grid, .project-grid, .footer-grid, .form-grid { grid-template-columns: 1fr; }
+      .owner-card { padding: 26px; }
+      .trust-item { border-right: 0; border-bottom: 1px solid var(--border); }
+      .project-card { min-height: 280px; }
+      .cta-box { padding: 34px 24px; border-radius: 22px; }
+      section { padding: 72px 0; }
+      .brand-title { font-size: 16px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"GeneralContractor",
+    "name":"Apex Builders Construction Inc.",
+    "image":"assets/apex-logo.png",
+    "telephone":"+14372492111",
+    "address":{"@type":"PostalAddress","streetAddress":"54 Dewberry Dr","addressLocality":"Kitchener","addressRegion":"ON","postalCode":"N2B 0A9","addressCountry":"CA"},
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"14"},
+    "areaServed":["Kitchener","Waterloo","Cambridge","Guelph"]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Apex Builders home">
+        <img src="assets/apex-logo.png" alt="Apex Builders Construction Inc. logo" />
+        <div class="brand-title">APEX BUILDERS <span>CONSTRUCTION INC.</span></div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#projects">Projects</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions"><a class="phone-link" href="tel:+14372492111">(437) 249-2111</a><a class="btn btn-primary" href="#contact">Free Estimate</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" style="display:none" aria-label="Mobile navigation">
+      <a href="#projects">Projects</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="tel:+14372492111">Call (437) 249-2111</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-badge">Kitchener · Waterloo · Cambridge · Guelph</div>
+          <h1>Renovations built right from start to finish.</h1>
+          <p>Led by Manpreet Dhammu, Apex Builders Construction Inc. helps homeowners and businesses transform basements, bathrooms, kitchens, flooring, additions, and full renovation projects with quality craftsmanship.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request Free Estimate</a>
+            <a class="btn btn-outline" href="tel:+14372492111">Call (437) 249-2111</a>
+          </div>
+          <div class="hero-proof">
+            <span class="proof-pill"><span class="stars">★★★★★</span> 5.0 Google Rating</span>
+            <span class="proof-pill">14 Google Reviews</span>
+            <span class="proof-pill">Owner Operated</span>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-grid">
+            <img src="assets/project-feature-wall.png" alt="Interior feature wall renovation by Apex Builders" />
+            <img src="assets/project-bathroom-vanity.png" alt="Modern bathroom renovation by Apex Builders" />
+            <img src="assets/project-basement.png" alt="Basement renovation by Apex Builders" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container trust">
+      <div class="trust-grid">
+        <div class="trust-item"><div class="trust-num">5.0★</div><div class="trust-label">Google Rating</div></div>
+        <div class="trust-item"><div class="trust-num">14</div><div class="trust-label">Customer Reviews</div></div>
+        <div class="trust-item"><div class="trust-num">KW</div><div class="trust-label">Locally Based</div></div>
+        <div class="trust-item"><div class="trust-num">7</div><div class="trust-label">Days Available</div></div>
+      </div>
+    </div>
+
+    <section class="owner" id="owner">
+      <div class="container">
+        <div class="owner-card">
+          <div class="owner-avatar">MD</div>
+          <div>
+            <div class="eyebrow">Owner operated</div>
+            <h2>Meet Manpreet Dhammu.</h2>
+            <p>Apex Builders Construction Inc. is led by Manpreet Dhammu, helping homeowners and businesses across Waterloo Region complete renovation and construction projects with clear communication, quality materials, and reliable workmanship. From basements and bathrooms to kitchens, flooring, additions, and general construction, Apex focuses on doing the job right from start to finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Recent work</div><h2>Project results you can see.</h2></div>
+          <p>Real renovation photos help homeowners understand the quality, cleanliness, and finish Apex Builders brings to every project.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card"><img src="assets/project-feature-wall.png" alt="Custom feature wall and TV installation"><div class="project-overlay"><small>Interior Renovation</small><h3>Custom Feature Wall</h3></div></article>
+          <article class="project-card"><img src="assets/project-basement.png" alt="Finished basement renovation"><div class="project-overlay"><small>Basement Renovation</small><h3>Finished Basement</h3></div></article>
+          <article class="project-card"><img src="assets/project-bathroom-vanity.png" alt="Modern bathroom vanity renovation"><div class="project-overlay"><small>Bathroom Remodel</small><h3>Modern Vanity</h3></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Services</div><h2>Complete renovation and construction services.</h2></div>
+          <p>From small upgrades to major renovations, Apex Builders handles the work with clear communication and professional workmanship.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="icon">01</div><h3>Basement Renovations</h3><p>Finish unused space into family rooms, rental suites, offices, entertainment rooms, and extra living areas.</p></article>
+          <article class="service-card"><div class="icon">02</div><h3>Bathroom Remodeling</h3><p>Showers, tubs, tile, vanities, fixtures, waterproofing, and modern bathroom upgrades.</p></article>
+          <article class="service-card"><div class="icon">03</div><h3>Kitchen Remodeling</h3><p>Functional kitchen layouts, cabinetry, flooring, fixtures, painting, and full kitchen transformations.</p></article>
+          <article class="service-card"><div class="icon">04</div><h3>Flooring & Tile</h3><p>Professional flooring installation including tile, vinyl, laminate, and finish work.</p></article>
+          <article class="service-card"><div class="icon">05</div><h3>Home Additions</h3><p>Expand your home with additional living space, structural planning, and clean construction execution.</p></article>
+          <article class="service-card"><div class="icon">06</div><h3>General Construction</h3><p>Building construction, foundation work, interior structural repairs, painting, and plumbing fixture installation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="container why-grid">
+        <div class="why-photo"><img src="assets/project-basement.png" alt="Interior renovation by Apex Builders Construction Inc."></div>
+        <div>
+          <div class="eyebrow">Why choose Apex</div>
+          <h2>Reliable work, honest timelines, and clean finishes.</h2>
+          <p>Apex Builders focuses on what homeowners care about most: clear pricing, respectful communication, quality materials, and work that is completed properly.</p>
+          <div class="why-list">
+            <div class="why-item"><div class="check">✓</div><div><h3>Owner Involved</h3><p>Work with Manpreet Dhammu and a team that pays attention to your needs.</p></div></div>
+            <div class="why-item"><div class="check">✓</div><div><h3>On-Time Completion</h3><p>Customers highlight Apex for completing basement and renovation work within promised timelines.</p></div></div>
+            <div class="why-item"><div class="check">✓</div><div><h3>Quality Materials</h3><p>Projects are completed with durable materials and professional craftsmanship.</p></div></div>
+            <div class="why-item"><div class="check">✓</div><div><h3>Trusted Locally</h3><p>5.0 Google rating with reviews from homeowners and local businesses.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Customer reviews</div><h2>Trusted by homeowners across Waterloo Region.</h2></div>
+          <p>Real feedback from customers who hired Apex Builders for basement, home, restaurant, and renovation work.</p>
+        </div>
+        <div class="review-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><p>“Apex Builders did a great job on my basement. They completed the work within the promised time. The materials they used were very good quality.”</p><strong>Paras Narang</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>“I got my basement done from Apex Construction. The guys are very smart and hardworking. They gave me a good price and completed my basement on time.”</p><strong>Angad Singh</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>“Apex Builders did amazing work renovating major things in our home. The staff are professional, respectful, and truly connect with clients.”</p><strong>Mansing Coonjobeharry</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>“Wonderful outcome from their renovation work. They did a great job. Highly recommended.”</p><strong>Muskan Kaur</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>“Highly recommend Apex Builders to anyone looking for reliable and skilled contractors for restaurant renovations or any construction work.”</p><strong>Food and Vlogs with Suresh</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>“Excellent work. Truly appreciate the quality and professionalism. Highly recommended.”</p><strong>Kuldeep Singh</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-box">
+          <div><h2>Ready to start your renovation?</h2><p>Call Apex Builders today or send your project details for a free estimate.</p></div>
+          <div class="hero-actions"><a class="btn btn-white" href="tel:+14372492111">Call Now</a><a class="btn btn-outline" href="#contact">Request Estimate</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <div class="eyebrow">Contact</div>
+          <h2>Get your free renovation estimate.</h2>
+          <p>Tell Apex Builders what you want done and the team will follow up to discuss your project.</p>
+          <div class="contact-row"><div class="check">☎</div><div><strong>Phone</strong><a href="tel:+14372492111">(437) 249-2111</a></div></div>
+          <div class="contact-row"><div class="check">⌂</div><div><strong>Address</strong><p>54 Dewberry Dr, Kitchener, ON N2B 0A9</p></div></div>
+          <div class="contact-row"><div class="check">◎</div><div><strong>Instagram</strong><p>@apex.buildersconstruction</p></div></div>
+          <div class="contact-row"><div class="check">⌁</div><div><strong>Service Areas</strong><p>Kitchener, Waterloo, Cambridge, Guelph and surrounding areas.</p></div></div>
+        </div>
+        <form class="form-card" action="mailto:apex.buildersconstruction@gmail.com" method="post" enctype="text/plain">
+          <div class="form-grid">
+            <div class="field"><label for="name">Name</label><input id="name" name="Name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" type="tel" placeholder="Your phone number" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="you@example.com"></div>
+            <div class="field"><label for="project">Project Type</label><select id="project" name="Project Type"><option>Basement Renovation</option><option>Bathroom Remodeling</option><option>Kitchen Remodeling</option><option>Flooring or Tile</option><option>Home Addition</option><option>General Construction</option></select></div>
+            <div class="field full"><label for="message">Project Details</label><textarea id="message" name="Message" placeholder="Tell us about your project, timeline, and location."></textarea></div>
+            <div class="field full"><button class="btn btn-primary" type="submit">Send Estimate Request</button><p class="form-note">Note: this opens the visitor’s email app. For a professional form inbox, connect Formspree, Netlify Forms, or another form service later.</p></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><img class="footer-logo" src="assets/apex-logo.png" alt="Apex Builders logo"><p>Apex Builders Construction Inc. provides trusted renovation and construction services throughout Waterloo Region.</p></div>
+        <div><h3>Services</h3><p>Basement Renovations<br>Bathroom Remodeling<br>Kitchen Remodeling<br>Flooring & Tile<br>Home Additions</p></div>
+        <div><h3>Contact</h3><p><a href="tel:+14372492111">(437) 249-2111</a><br>54 Dewberry Dr<br>Kitchener, ON N2B 0A9<br>@apex.buildersconstruction</p></div>
+      </div>
+      <div class="copyright">© <span id="year"></span> Apex Builders Construction Inc. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'none' ? 'grid' : 'none';
+      btn.textContent = menu.style.display === 'none' ? '☰' : '×';
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.style.display = 'none';
+      btn.textContent = '☰';
+    }));
+  </script>
+</body>
+</html>
