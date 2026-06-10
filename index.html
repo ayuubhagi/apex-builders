@@ -52,7 +52,11 @@
     .nav-links { display: flex; align-items: center; gap: 26px; font-weight: 700; color: #4a5565; font-size: 14px; }
     .nav-actions { display: flex; align-items: center; gap: 12px; }
     .phone-link { font-weight: 900; color: var(--ink); }
-    .menu-btn { display: none; border: 0; background: transparent; font-size: 28px; cursor: pointer; }
+    .menu-btn { display: none; border: 0; background: transparent; font-size: 28px; cursor: pointer; padding: 8px; }
+
+    .mobile-menu { display: none; position: fixed; top: 78px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 18px 24px; gap: 14px; box-shadow: var(--shadow); z-index: 49; }
+    .mobile-menu a { font-weight: 700; font-size: 16px; padding: 6px 0; display: block; }
+    .mobile-menu.is-open { display: grid; }
 
     .hero { position: relative; min-height: 760px; display: grid; align-items: center; overflow: hidden; background: #111827; }
     .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,16,28,.92), rgba(9,16,28,.72) 48%, rgba(9,16,28,.34)), url('assets/project-bathroom-vanity.png') center/cover no-repeat; transform: scale(1.04); }
@@ -82,8 +86,8 @@
 
     .projects { background: #fff; }
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .project-card { position: relative; overflow: hidden; border-radius: 22px; min-height: 340px; background: #ddd; box-shadow: 0 12px 30px rgba(16,24,40,.08); }
-    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: .35s ease; }
+    .project-card { position: relative; overflow: hidden; border-radius: 22px; height: 380px; background: #ddd; box-shadow: 0 12px 30px rgba(16,24,40,.08); }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: .35s ease; }
     .project-card:hover img { transform: scale(1.06); }
     .project-overlay { position: absolute; inset: auto 0 0; padding: 56px 20px 20px; background: linear-gradient(0deg, rgba(0,0,0,.78), transparent); color: #fff; }
     .project-overlay small { color: #bde7ff; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
@@ -104,7 +108,7 @@
 
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
     .why-photo { position: relative; }
-    .why-photo img { border-radius: 28px; box-shadow: var(--shadow); width: 100%; max-height: 560px; object-fit: cover; }
+    .why-photo img { border-radius: 28px; box-shadow: var(--shadow); width: 100%; height: 560px; object-fit: cover; object-position: center; }
     .why-list { display: grid; gap: 16px; margin-top: 28px; }
     .why-item { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
     .check { width: 42px; height: 42px; border-radius: 50%; background: rgba(11,118,187,.12); display: grid; place-items: center; color: var(--blue); font-weight: 900; }
@@ -149,8 +153,6 @@
     @media (max-width: 940px) {
       .nav-links, .nav-actions { display: none; }
       .menu-btn { display: block; }
-      .nav.mobile-open { height: auto; align-items: flex-start; padding: 16px 0; }
-      .mobile-menu { display: grid !important; position: absolute; top: 78px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 18px 24px; gap: 14px; box-shadow: var(--shadow); }
       .hero-inner, .why-grid, .contact-grid { grid-template-columns: 1fr; }
       .hero-card { display: none; }
       .trust-grid, .service-grid, .review-grid, .footer-grid, .project-grid { grid-template-columns: 1fr 1fr; }
@@ -164,7 +166,7 @@
       .trust-grid, .service-grid, .review-grid, .project-grid, .footer-grid, .form-grid { grid-template-columns: 1fr; }
       .owner-card { padding: 26px; }
       .trust-item { border-right: 0; border-bottom: 1px solid var(--border); }
-      .project-card { min-height: 280px; }
+      .project-card { height: 280px; }
       .cta-box { padding: 34px 24px; border-radius: 22px; }
       section { padding: 72px 0; }
       .brand-title { font-size: 16px; }
@@ -196,8 +198,12 @@
       <div class="nav-actions"><a class="phone-link" href="tel:+14372492111">(437) 249-2111</a><a class="btn btn-primary" href="#contact">Free Estimate</a></div>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" style="display:none" aria-label="Mobile navigation">
-      <a href="#projects">Projects</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="tel:+14372492111">Call (437) 249-2111</a>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+14372492111">Call (437) 249-2111</a>
     </nav>
   </header>
 
@@ -305,12 +311,12 @@
           <p>Real feedback from customers who hired Apex Builders for basement, home, restaurant, and renovation work.</p>
         </div>
         <div class="review-grid">
-          <article class="review-card"><div class="stars">★★★★★</div><p>“Apex Builders did a great job on my basement. They completed the work within the promised time. The materials they used were very good quality.”</p><strong>Paras Narang</strong></article>
-          <article class="review-card"><div class="stars">★★★★★</div><p>“I got my basement done from Apex Construction. The guys are very smart and hardworking. They gave me a good price and completed my basement on time.”</p><strong>Angad Singh</strong></article>
-          <article class="review-card"><div class="stars">★★★★★</div><p>“Apex Builders did amazing work renovating major things in our home. The staff are professional, respectful, and truly connect with clients.”</p><strong>Mansing Coonjobeharry</strong></article>
-          <article class="review-card"><div class="stars">★★★★★</div><p>“Wonderful outcome from their renovation work. They did a great job. Highly recommended.”</p><strong>Muskan Kaur</strong></article>
-          <article class="review-card"><div class="stars">★★★★★</div><p>“Highly recommend Apex Builders to anyone looking for reliable and skilled contractors for restaurant renovations or any construction work.”</p><strong>Food and Vlogs with Suresh</strong></article>
-          <article class="review-card"><div class="stars">★★★★★</div><p>“Excellent work. Truly appreciate the quality and professionalism. Highly recommended.”</p><strong>Kuldeep Singh</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"Apex Builders did a great job on my basement. They completed the work within the promised time. The materials they used were very good quality."</p><strong>Paras Narang</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"I got my basement done from Apex Construction. The guys are very smart and hardworking. They gave me a good price and completed my basement on time."</p><strong>Angad Singh</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"Apex Builders did amazing work renovating major things in our home. The staff are professional, respectful, and truly connect with clients."</p><strong>Mansing Coonjobeharry</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"Wonderful outcome from their renovation work. They did a great job. Highly recommended."</p><strong>Muskan Kaur</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"Highly recommend Apex Builders to anyone looking for reliable and skilled contractors for restaurant renovations or any construction work."</p><strong>Food and Vlogs with Suresh</strong></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>"Excellent work. Truly appreciate the quality and professionalism. Highly recommended."</p><strong>Kuldeep Singh</strong></article>
         </div>
       </div>
     </section>
@@ -342,7 +348,7 @@
             <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="you@example.com"></div>
             <div class="field"><label for="project">Project Type</label><select id="project" name="Project Type"><option>Basement Renovation</option><option>Bathroom Remodeling</option><option>Kitchen Remodeling</option><option>Flooring or Tile</option><option>Home Addition</option><option>General Construction</option></select></div>
             <div class="field full"><label for="message">Project Details</label><textarea id="message" name="Message" placeholder="Tell us about your project, timeline, and location."></textarea></div>
-            <div class="field full"><button class="btn btn-primary" type="submit">Send Estimate Request</button><p class="form-note">Note: this opens the visitor’s email app. For a professional form inbox, connect Formspree, Netlify Forms, or another form service later.</p></div>
+            <div class="field full"><button class="btn btn-primary" type="submit">Send Estimate Request</button><p class="form-note">Note: this opens the visitor's email app. For a professional form inbox, connect Formspree, Netlify Forms, or another form service later.</p></div>
           </div>
         </form>
       </div>
@@ -361,34 +367,38 @@
   </footer>
 
   <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  const btn = document.getElementById('menuBtn');
-  const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    let isOpen = false;
 
-  function closeMenu() {
-    menu.style.display = 'none';
-    btn.textContent = '☰';
-  }
+    function closeMenu() {
+      isOpen = false;
+      menu.classList.remove('is-open');
+      btn.textContent = '☰';
+    }
 
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-
-    if (menu.style.display === 'grid') {
-      closeMenu();
-    } else {
-      menu.style.display = 'grid';
+    function openMenu() {
+      isOpen = true;
+      menu.classList.add('is-open');
       btn.textContent = '×';
     }
-  });
 
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isOpen ? closeMenu() : openMenu();
+    });
 
-  window.addEventListener('scroll', closeMenu);
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 940) closeMenu();
-  });
-</script>
+    window.addEventListener('scroll', closeMenu);
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 940) closeMenu();
+    });
+  </script>
+</body>
+</html>
